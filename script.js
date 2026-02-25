@@ -1,9 +1,9 @@
 /**
  * RESEARCH_ORIENTED // LOGIC_SCRIPT
- * Features: Neural network background, smooth reveal, and clean interactions.
+ * Features: Neural network background, professional scroll reveal, and technical metadata logging.
  */
 
-// 1. Neural Network Animation
+// 1. Neural Network Animation Engine
 function initNeuralNetwork() {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
@@ -16,15 +16,19 @@ function initNeuralNetwork() {
   let height = canvas.height = window.innerHeight;
 
   const points = [];
-  const pointCount = 60;
+  const pointCount = 60; // Optimal density for performance/visibility
   const connectionDist = 180;
 
   class Point {
     constructor() {
+      this.reset();
+    }
+
+    reset() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.3;
-      this.vy = (Math.random() - 0.5) * 0.3;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
     }
 
     update() {
@@ -38,11 +42,12 @@ function initNeuralNetwork() {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0, 112, 243, 0.3)';
+      ctx.fillStyle = 'rgba(0, 112, 243, 0.4)';
       ctx.fill();
     }
   }
 
+  // Populate network nodes
   for (let i = 0; i < pointCount; i++) {
     points.push(new Point());
   }
@@ -65,7 +70,7 @@ function initNeuralNetwork() {
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(0, 112, 243, ${0.1 * (1 - dist / connectionDist)})`;
+          ctx.strokeStyle = `rgba(0, 112, 243, ${0.15 * (1 - dist / connectionDist)})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
@@ -76,44 +81,52 @@ function initNeuralNetwork() {
 
   animate();
 
+  // Responsive canvas resizing
+  let resizeTimer;
   window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      points.forEach(p => p.reset()); // Re-distribute points on resize
+    }, 200);
   });
 }
 
-// 2. Professional Scroll Reveal
+// 2. High-Precision Scroll Reveal
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
-  function checkReveal() {
-    const triggerBottom = window.innerHeight * 0.85;
-
-    reveals.forEach(reveal => {
-      const revealTop = reveal.getBoundingClientRect().top;
-      if (revealTop < triggerBottom) {
-        reveal.classList.add('is-visible');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target); // Trigger once
       }
     });
-  }
+  }, observerOptions);
 
-  window.addEventListener('scroll', checkReveal);
-  checkReveal();
+  reveals.forEach(el => revealObserver.observe(el));
 }
 
-// 3. Metadata Hover (Console Log for academic feel)
-function initHoverLabels() {
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      const label = card.querySelector('.label')?.innerText || 'DATA_NODE';
-      console.debug(`[SYSTEM] INSPECTING_COMPONENT: ${label}`);
+// 3. Technical Component Metadata Trace
+function initMetadataTrace() {
+  document.querySelectorAll('.card, .timeline-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      const label = el.querySelector('.label')?.innerText || 'DATA_NODE';
+      const heading = el.querySelector('h3')?.innerText || 'UNIT';
+      console.debug(`[ENGINE] TRACING_COMPONENT: ${label} // IDENTIFIER: ${heading}`);
     });
   });
 }
 
-// 4. Initialization
+// 4. Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
   initNeuralNetwork();
   initScrollReveal();
-  initHoverLabels();
+  initMetadataTrace();
 });
