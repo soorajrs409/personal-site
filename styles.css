@@ -126,12 +126,18 @@ header.hero {
   margin-bottom: 2rem;
 }
 
+.hero .lead {
+  margin-inline: 0;
+}
+
 .lead {
   font-size: 1.3rem;
   color: var(--text-dim);
   max-width: 60ch;
   margin-bottom: 3.5rem;
   font-weight: 400;
+  margin-inline: auto;
+  /* Centers the block if parent has text-align: center */
 }
 
 .hero-panel {
