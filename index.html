@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,6 +8,7 @@
   <meta name="description" content="Cyber Security Engineer | AppSec | Pentesting | Automation">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div id="canvas-container"></div>
   <div class="scanlines"></div>
@@ -24,9 +26,22 @@
       <span class="eyebrow">Initializing session... [ACCESS_GRANTED]</span>
       <h1 class="glitch" data-text="SOORAJ SUDHEVAN">SOORAJ SUDHEVAN</h1>
       <p class="lead">
-        Application Security Engineer specializing in offensive validation, secure automation, and cloud-native hardening.
-        Moving fast without breaking security.
+        I design and ship security controls that help engineering teams move fast without opening risk.
+        My focus is practical AppSec, pentesting, secure automation, and cloud-native hardening.
       </p>
+
+      <div class="hero-panel reveal">
+        <span class="tag">CURRENT_STATUS</span>
+        <h3>MTS - APPLICATION SECURITY</h3>
+        <p>Flexera Software India LLP (Jan 2024 - Present)</p>
+        <div class="mini-grid">
+          <div><strong>9+ yrs</strong><span>CYBER_EXP</span></div>
+          <div><strong>5+</strong><span>SEC_ENG_ROLES</span></div>
+          <div><strong>4</strong><span>CORE_PROGRAMS</span></div>
+          <div><strong>2</strong><span>ACTIVE_CERTS</span></div>
+        </div>
+      </div>
+
       <div class="hero-cta">
         <a class="btn" href="#contact">ESTABLISH_CONNECTION</a>
         <a class="btn btn-ghost" href="./sooraj-resume.pdf" download>DOWNLOAD_INTEL</a>
@@ -40,10 +55,14 @@
         <span class="tag">01_PROFILE</span>
         <h2>OFFENSE // DEFENSE // ENGINEERING</h2>
       </div>
-      <p class="lead">
-        I design and ship security controls that help engineering teams move fast without opening risk. 
-        My focus is practical AppSec, pentesting, secure automation, and cloud-native hardening.
-      </p>
+      <div class="two-col">
+        <p>I bring a strong mix of hands-on pentesting, source-code review, secure CI/CD integration, vulnerability
+          process ownership, and cloud security architecture. I actively work with both DAST/SAST platforms and custom
+          automation tooling to reduce manual effort and improve signal.</p>
+        <p>Beyond delivery, I train developers and security champions on secure SDLC practices, validate externally
+          reported findings, and support incident response when compromise risk appears. I stay current with latest CVEs
+          and exploit trends to keep controls realistic.</p>
+      </div>
     </section>
 
     <section id="impact" class="block reveal">
@@ -54,15 +73,19 @@
       <div class="metric-grid">
         <article class="metric">
           <h3>SECURE_PIPELINES</h3>
-          <p>Integrated security controls and gates directly into CI/CD workflows.</p>
+          <p>Integrated security controls and gates directly into software delivery pipelines.</p>
         </article>
         <article class="metric">
           <h3>RISK_VISIBILITY</h3>
-          <p>Automated risk tracking and centralized telemetry for real-time awareness.</p>
+          <p>Converted disconnected risk tracking into centralized and automated reporting systems.</p>
         </article>
         <article class="metric">
           <h3>CLOUD_HARDENING</h3>
-          <p>EKS auditing, IAM lockdown, and infrastructure-as-code security patterns.</p>
+          <p>Audited and secured EKS clusters, cloud resources, and infrastructure-as-code patterns.</p>
+        </article>
+        <article class="metric">
+          <h3>OFFENSIVE_VALIDATION</h3>
+          <p>Validated vulnerabilities through pentest, exploit development, and practical reproduction.</p>
         </article>
       </div>
     </section>
@@ -74,14 +97,34 @@
       </div>
       <div class="project-list">
         <article class="project reveal">
-          <h3>CLOUD_HSM_INFRA</h3>
-          <p>Built a centralized production pipeline for code signing, backed by HSM-driven key management.</p>
-          <span class="stack">AWS CloudHSM, Terraform, Python, GitHub Actions</span>
+          <h3>CENTRALIZED_CODE_SIGNING</h3>
+          <p class="problem">Problem: Code signing was fragmented across on-prem and cloud builds.</p>
+          <p>Built and deployed a production pipeline integrating build machines via CI/CD, backed by HSM-driven key
+            management.</p>
+          <span class="stack">AWS CloudHSM, S3, VPC, Terraform, Python, GitHub Actions</span>
         </article>
+
         <article class="project reveal">
-          <h3>AI_APPSEC_ASSISTANT</h3>
-          <p>RAG-based security query engine using vector search for automated doc analysis.</p>
-          <span class="stack">AWS Bedrock, OpenSearch, Node.js, Terraform</span>
+          <h3>CENTRALIZED_RISK_REGISTER</h3>
+          <p class="problem">Problem: Risk tracking lacked visibility and active alerting.</p>
+          <p>Migrated data into DynamoDB and automated reporting/expiry alerts, improving escalation speed.</p>
+          <span class="stack">AWS DynamoDB, CloudWatch, Terraform, Python, Power Automate</span>
+        </article>
+
+        <article class="project reveal">
+          <h3>SECRET_LIFECYCLE_MGT</h3>
+          <p class="problem">Problem: Secret handling lacked consistency and change traceability.</p>
+          <p>Created a repository-centric pattern automating lifecycle operations and improving visibility through
+            workflow controls.</p>
+          <span class="stack">GitHub Actions, Python, Azure Vault, Terraform</span>
+        </article>
+
+        <article class="project reveal">
+          <h3>RAG_APPSEC_ASSISTANT</h3>
+          <p class="problem">Problem: Engineers manually searched large docs for recurring security questions.</p>
+          <p>Ingested documentation into vector search and deployed a RAG chatbot for faster security query response.
+          </p>
+          <span class="stack">AWS Bedrock, OpenSearch, S3, Terraform, Node.js</span>
         </article>
       </div>
     </section>
@@ -93,14 +136,50 @@
       </div>
       <div class="timeline">
         <article class="timeline-item reveal">
-          <span>2024 - PRESENT</span>
-          <h3>FLEXERA // MTS_APPSEC</h3>
-          <p>Pentesting, security tool development, and cloud auditing.</p>
+          <span>JAN 2024 - PRESENT</span>
+          <h3>FLEXERA // MTS - APPSEC</h3>
+          <ul>
+            <li>Pentesting flagship applications and auditing cloud misconfigurations.</li>
+            <li>Developing security tools, CI/CD controls, and internal Terraform security modules.</li>
+            <li>Training developers and security champions on secure SDLC practices.</li>
+          </ul>
         </article>
+
         <article class="timeline-item reveal">
-          <span>2021 - 2024</span>
-          <h3>SONY_INDIA // SENIOR_SEC_ENG</h3>
-          <p>DAST/SAST analysis, bug bounty triage, and security automation.</p>
+          <span>DEC 2021 - JAN 2024</span>
+          <h3>SONY INDIA // SENIOR_SEC_ENG</h3>
+          <ul>
+            <li>Performed DAST/SAST analysis, web app pentesting, and vulnerability triage.</li>
+            <li>Validated external bug bounty reports and developed internal security automations.</li>
+            <li>Drove end-to-end vulnerability reporting and escalation process.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span>SEP 2020 - NOV 2021</span>
+          <h3>EOSDUBLIN // SYS_ADMIN</h3>
+          <ul>
+            <li>Secured infrastructure, optimized cluster nodes, and automated operations.</li>
+            <li>Researched emerging protocols and stress-tested environments.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span>AUG 2019 - AUG 2020</span>
+          <h3>MY SCHOOLPAGE // IT_ADMIN</h3>
+          <ul>
+            <li>Network and server administration across Linux, Windows, and iOS.</li>
+            <li>Performed security auditing, pentesting, and Python-based automation.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span>APR 2016 - MAY 2019</span>
+          <h3>D-PHASE // LINUX_ADMIN</h3>
+          <ul>
+            <li>Managed servers, accounts, networking, and cloud resources.</li>
+            <li>Delivered technical documentation and rapid issue resolution workflows.</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -112,16 +191,77 @@
       </div>
       <div class="matrix reveal">
         <article>
-          <h3>NET_SEC</h3>
-          <p>AppSec, Pentesting, Bug Bounty, Incident Support</p>
+          <h3>SECURITY_DOMAINS</h3>
+          <p>AppSec, Pentesting, Bug Bounty, Secure SDLC, Incident Support</p>
         </article>
         <article>
-          <h3>CODE_EXEC</h3>
-          <p>Python, Go, Node.js, C++, Java</p>
+          <h3>PROGRAMMING</h3>
+          <p>Python, Go, Node.js, C, C++, Java, JavaScript</p>
         </article>
         <article>
-          <h3>INFRA_SEC</h3>
-          <p>AWS, GCP, Azure, K8s, Terraform, Docker</p>
+          <h3>CLOUD_DEVOPS</h3>
+          <p>AWS, GCP, Azure, Docker, K8s, Ansible, Terraform, Jenkins</p>
+        </article>
+        <article>
+          <h3>ASSESSMENT_TOOLS</h3>
+          <p>Burp Suite, OWASP ZAP, Nmap, Wireshark, Metasploit, Ghidra, Nuclei</p>
+        </article>
+        <article>
+          <h3>OS_ENV</h3>
+          <p>Kali Linux, Ubuntu, Red Hat, Windows, iOS</p>
+        </article>
+        <article>
+          <h3>PLATFORMS</h3>
+          <p>Qualys, Checkmarx, Snyk, Power Automate, Teams Webhooks</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" class="block">
+      <div class="block-head reveal">
+        <span class="tag">06_RESEARCH</span>
+        <h2>CONTINUOUS_SEC_R&D</h2>
+      </div>
+      <div class="research-grid">
+        <article class="research-item reveal">
+          <h3>VULN_REPRODUCTION</h3>
+          <p>Tracking latest CVEs and reproducing exploit paths in controlled sandboxes.</p>
+        </article>
+        <article class="research-item reveal">
+          <h3>EXPLOIT_DEV</h3>
+          <p>Developing internal tools and exploit techniques for better pentest depth.</p>
+        </article>
+        <article class="research-item reveal">
+          <h3>ML_SECURITY</h3>
+          <p>Studying data preprocessing and model efficiency for security applications.</p>
+        </article>
+        <article class="research-item reveal">
+          <h3>WINDOWS_INTERNALS</h3>
+          <p>Researching Windows API abuse, process injection, and RCE pathways.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="certs" class="block">
+      <div class="block-head reveal">
+        <span class="tag">07_INTEL_RECORDS</span>
+        <h2>CERTIFICATIONS_&_EDUCATION</h2>
+      </div>
+      <div class="cert-grid">
+        <article class="cert-card reveal">
+          <h3>SANS SEC522</h3>
+          <p>Application Security: Securing Web Apps, APIs, and Microservices</p>
+          <span class="stack">CERTIFIED_2025</span>
+        </article>
+        <article class="cert-card reveal">
+          <h3>AWS_CCP</h3>
+          <p>Cloud and security fundamentals for infrastructure and operations.</p>
+          <span class="stack">CERTIFIED_2025</span>
+        </article>
+        <article class="cert-card reveal">
+          <h3>EDUCATION_DATA</h3>
+          <p>BBA (Computer Application) - AJK-CAS</p>
+          <p>Higher Secondary - K.K.M.H.S</p>
         </article>
       </div>
     </section>
@@ -129,9 +269,9 @@
 
   <footer id="contact" class="shell reveal">
     <div class="footer-card">
-      <span class="tag">06_CONTACT</span>
-      <h2>OPEN_TO_COLLABORATION</h2>
-      <p>Secure the future. Establish a secure channel below.</p>
+      <span class="tag">08_CONTACT</span>
+      <h2>ESTABLISH_SESSION</h2>
+      <p>Open to cybersecurity engineering opportunities. Establish a secure channel below.</p>
       <div class="contact-links">
         <a href="mailto:soorajrs409@gmail.com">SMTP://MAIL</a>
         <a href="tel:+918075580690">PSTN://CALL</a>
@@ -141,4 +281,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
