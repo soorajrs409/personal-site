@@ -1,12 +1,10 @@
 /**
- * DEDSEC_LOGIC // WATCH_DOGS_2_THEME
- * Features: Randomized glitching, chaotic text reveal, and noise generation.
+ * RESEARCH_ORIENTED // LOGIC_SCRIPT
+ * Features: Neural network background, smooth reveal, and clean interactions.
  */
 
-const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?/\\';
-
-// 1. DedSec Chaos Background (Noise & Glitches)
-function initDedSecBg() {
+// 1. Neural Network Animation
+function initNeuralNetwork() {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
   const container = document.getElementById('canvas-container');
@@ -17,43 +15,66 @@ function initDedSecBg() {
   let width = canvas.width = window.innerWidth;
   let height = canvas.height = window.innerHeight;
 
-  function draw() {
-    // Faint noise background
-    const imageData = ctx.createImageData(width, height);
-    const data = imageData.data;
-    for (let i = 0; i < data.length; i += 4) {
-      const val = Math.random() * 255;
-      data[i] = val;     // R
-      data[i + 1] = val;   // G
-      data[i + 2] = val;   // B
-      data[i + 3] = 15;    // A (very subtle)
-    }
-    ctx.putImageData(imageData, 0, 0);
+  const points = [];
+  const pointCount = 60;
+  const connectionDist = 180;
 
-    // Random Glitch Rectangles
-    if (Math.random() > 0.9) {
-      ctx.fillStyle = Math.random() > 0.5 ? '#faff00' : '#ff003c';
-      ctx.fillRect(
-        Math.random() * width,
-        Math.random() * height,
-        Math.random() * 200,
-        Math.random() * 5
-      );
+  class Point {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = (Math.random() - 0.5) * 0.3;
     }
 
-    // Random Character Glitches
-    if (Math.random() > 0.8) {
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '10px monospace';
-      ctx.fillText(
-        charSet[Math.floor(Math.random() * charSet.length)],
-        Math.random() * width,
-        Math.random() * height
-      );
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 112, 243, 0.3)';
+      ctx.fill();
     }
   }
 
-  setInterval(draw, 50);
+  for (let i = 0; i < pointCount; i++) {
+    points.push(new Point());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < points.length; i++) {
+      const p1 = points[i];
+      p1.update();
+      p1.draw();
+
+      for (let j = i + 1; j < points.length; j++) {
+        const p2 = points[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < connectionDist) {
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(0, 112, 243, ${0.1 * (1 - dist / connectionDist)})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 
   window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
@@ -61,67 +82,38 @@ function initDedSecBg() {
   });
 }
 
-// 2. Aggressive Scramble Reveal
-function scrambleText(element) {
-  const originalText = element.getAttribute('data-text') || element.innerText;
-  if (!element.getAttribute('data-text')) element.setAttribute('data-text', originalText);
+// 2. Professional Scroll Reveal
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
 
-  let iteration = 0;
-  const interval = setInterval(() => {
-    element.innerText = originalText
-      .split('')
-      .map((letter, index) => {
-        if (index < iteration) return originalText[index];
-        return charSet[Math.floor(Math.random() * charSet.length)];
-      })
-      .join('');
+  function checkReveal() {
+    const triggerBottom = window.innerHeight * 0.85;
 
-    if (iteration >= originalText.length) clearInterval(interval);
-    iteration += 1 / 2; // Slower, more "calculated" reveal
-  }, 20);
-}
-
-// 3. UI Jitter (Subtle element displacement)
-function initJitter() {
-  const elements = document.querySelectorAll('.project, .metric, .timeline-item');
-
-  setInterval(() => {
-    elements.forEach(el => {
-      if (Math.random() > 0.99) {
-        const x = (Math.random() - 0.5) * 4;
-        const y = (Math.random() - 0.5) * 4;
-        el.style.transform = `translate(${x}px, ${y}px) rotate(${(Math.random() - 0.5) * 1}deg)`;
-        setTimeout(() => el.style.transform = '', 100);
+    reveals.forEach(reveal => {
+      const revealTop = reveal.getBoundingClientRect().top;
+      if (revealTop < triggerBottom) {
+        reveal.classList.add('is-visible');
       }
     });
-  }, 100);
+  }
+
+  window.addEventListener('scroll', checkReveal);
+  checkReveal();
+}
+
+// 3. Metadata Hover (Console Log for academic feel)
+function initHoverLabels() {
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const label = card.querySelector('.label')?.innerText || 'DATA_NODE';
+      console.debug(`[SYSTEM] INSPECTING_COMPONENT: ${label}`);
+    });
+  });
 }
 
 // 4. Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  initDedSecBg();
-  initJitter();
-
-  const revealItems = document.querySelectorAll('.reveal');
-  const checkReveal = () => {
-    const trigger = window.innerHeight * 0.9;
-    revealItems.forEach(item => {
-      if (item.getBoundingClientRect().top < trigger) {
-        item.classList.add('is-visible');
-        if (!item.hasAttribute('data-scrambled')) {
-          const h = item.querySelector('h1, h2, h3');
-          if (h) scrambleText(h);
-          item.setAttribute('data-scrambled', 'true');
-        }
-      }
-    });
-  };
-
-  window.addEventListener('scroll', checkReveal);
-  checkReveal();
-
-  // Hover triggers
-  document.querySelectorAll('h1, h2, h3').forEach(h => {
-    h.addEventListener('mouseenter', () => scrambleText(h));
-  });
+  initNeuralNetwork();
+  initScrollReveal();
+  initHoverLabels();
 });
