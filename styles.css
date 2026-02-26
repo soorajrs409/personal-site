@@ -29,8 +29,11 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 body {
@@ -458,12 +461,15 @@ footer {
     flex-direction: column;
     padding: 6rem 2rem 2rem;
     z-index: 1080;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    visibility: hidden;
+    /* Prevent horizontal overflow/interaction when closed */
   }
 
   nav .links.active {
     right: 0;
+    visibility: visible;
   }
 
   nav a {
