@@ -124,9 +124,38 @@ function initMetadataTrace() {
   });
 }
 
-// 4. Global Initialization
+// 4. Mobile Navigation Logic
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  const overlay = document.getElementById('nav-overlay');
+  const navLinks = document.querySelectorAll('#nav-links a');
+
+  if (!toggle || !links || !overlay) return;
+
+  const toggleMenu = () => {
+    toggle.classList.toggle('active');
+    links.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
+  };
+
+  toggle.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (links.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  });
+}
+
+// 5. Global Initialization
 document.addEventListener('DOMContentLoaded', () => {
   initNeuralNetwork();
   initScrollReveal();
   initMetadataTrace();
+  initMobileNav();
 });
