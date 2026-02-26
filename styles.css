@@ -321,6 +321,10 @@ h2 {
   padding: 2.5rem;
   border-radius: var(--radius);
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Ensures uniform height in flex/grid contexts */
 }
 
 .card:hover {
@@ -337,6 +341,11 @@ h2 {
 .card p {
   color: var(--text-dim);
   font-size: 1rem;
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.5;
+  margin-top: auto;
+  /* Pushes content down if needed, but here it's more about the block */
 }
 
 .stack {
