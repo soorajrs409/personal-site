@@ -84,7 +84,8 @@ nav {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
-  z-index: 1000;
+  z-index: 1200;
+  /* Increased to be above overlay */
   padding: 1.25rem 0;
 }
 
@@ -122,12 +123,27 @@ nav .shell {
   transition: var(--transition);
 }
 
-.hamburger::before { top: -8px; }
-.hamburger::after { top: 8px; }
+.hamburger::before {
+  top: -8px;
+}
 
-.nav-toggle.active .hamburger { background: transparent; }
-.nav-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
-.nav-toggle.active .hamburger::after { transform: rotate(-45deg); top: 0; }
+.hamburger::after {
+  top: 8px;
+}
+
+.nav-toggle.active .hamburger {
+  background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle.active .hamburger::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
 
 nav .links {
   display: flex;
@@ -291,7 +307,8 @@ h2 {
 .matrix,
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  /* Reduced from 320px to prevent overflow */
   gap: 2.5rem;
 }
 
