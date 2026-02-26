@@ -296,15 +296,31 @@ h2 {
 
 .two-col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: 5rem;
 }
 
 .two-col p {
   color: var(--text-dim);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+}
+
+.abstract-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.abstract-content p {
+  color: var(--text-dim);
+  font-size: 1.15rem;
+  line-height: 1.8;
   text-align: justify;
   hyphens: auto;
+  margin-bottom: 2rem;
+}
+
+.abstract-content p:last-child {
+  margin-bottom: 0;
 }
 
 /* Information Grids */
