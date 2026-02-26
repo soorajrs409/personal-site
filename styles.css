@@ -209,13 +209,14 @@ header.hero {
 }
 
 .lead {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
+  /* Slightly reduced for better balance */
   color: var(--text-dim);
-  max-width: 60ch;
-  margin-bottom: 3.5rem;
+  max-width: 65ch;
+  margin-bottom: 3rem;
   font-weight: 400;
   margin-inline: auto;
-  /* Centers the block if parent has text-align: center */
+  line-height: 1.6;
 }
 
 .hero-panel {
@@ -295,13 +296,15 @@ h2 {
 
 .two-col {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 4rem;
 }
 
 .two-col p {
   color: var(--text-dim);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* Information Grids */
@@ -310,8 +313,7 @@ h2 {
 .matrix,
 .cert-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
-  /* Reduced from 320px to prevent overflow */
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 2.5rem;
 }
 
@@ -373,7 +375,7 @@ h2 {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: minmax(180px, 220px) 1fr;
   gap: 3rem;
 }
 
